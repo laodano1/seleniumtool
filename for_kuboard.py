@@ -77,7 +77,6 @@ def get_namespace_btn(driver, btns):
         else:
             continue
 
-
 # enter import workload
 def get_import_workload_btn(slt):
     # btns = slt.find_element_by_tag_name("div").find_elements_by_tag_name("span")  #.find_elements_by_tag_name("button")
@@ -89,8 +88,8 @@ def get_import_workload_btn(slt):
             print("  1-- btn text: " + btn.text)
             return btn
         else:
-            print("  2-- btn text: " + btn.text)
-
+            continue
+            # print("  2-- btn text: " + btn.text)
 
 ############
 chromeDriver = config_chrome_driver()
@@ -100,7 +99,7 @@ print("title: " + chromeDriver.title)
 print("current_url 1: " + chromeDriver.current_url)
 
 # assert "Kuboard" in chromeDriver.title
-print("current_url 2: " + chromeDriver.current_url)
+# print("current_url 2: " + chromeDriver.current_url)
 
 # chromeDriver.implicitly_wait(2)
 # WebDriverWait(chromeDriver, 10).until(
@@ -124,11 +123,11 @@ move_and_click(chromeDriver, ipt_btn)
 chromeDriver.save_screenshot("4.png")
 
 # click upload button
-# uplder = chromeDriver.find_element_by_class_name("el-upload-dragger")
-# print("  --- class 5: " + uplder.get_attribute("class"))
-# ActionChains(chromeDriver).move_to_element(uplder).perform()
-# uplder.click()
-# uplder.send_keys("C:\\Users\\kinge\\Downloads\\kuboard_wanda-games_2020_04_16_17_55_34.yaml")
+uplder = chromeDriver.find_element_by_class_name("el-upload-dragger")
+print("  --- class 5: " + uplder.get_attribute("class"))
+ActionChains(chromeDriver).move_to_element(uplder).perform()
+uplder.click()
+uplder.send_keys("C:\\Users\\kinge\\Downloads\\kuboard_wanda-games_2020_04_16_17_55_34.yaml")
 
 # select uploaded file
 
